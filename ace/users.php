@@ -12,7 +12,7 @@ class User
         $userId = $json["username"];
         $password = $json["password"];
 
-        $sql = "SELECT * FROM tbl_users WHERE username = :userId AND password = :password";
+        $sql = "SELECT * FROM tbl_admin WHERE username = :userId AND password = :password";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":userId", $userId);
