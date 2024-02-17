@@ -92,8 +92,7 @@ class _MyState extends State<My> {
                           child: TextFormField(
                             keyboardType: TextInputType.text,
                             controller: password,
-                            obscureText:
-                                !passwordVisible,
+                            obscureText: !passwordVisible,
                             decoration: InputDecoration(
                               labelText: 'Password',
                               hintText: 'Enter your password',
@@ -121,7 +120,6 @@ class _MyState extends State<My> {
                         ),
                       ),
                       sizeH(10),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -146,7 +144,6 @@ class _MyState extends State<My> {
                           ),
                         ],
                       ),
-
                       sizeH(10),
                       OutlinedButton(
                         style: OutlinedButton.styleFrom(
@@ -286,7 +283,8 @@ class _MyState extends State<My> {
       width: wide,
     );
   }
-  void login()async{
+
+  void login() async {
     var uri = Uri.parse("http://localhost/ace/users.php");
     Map<String, dynamic> json = {
       "username": name.text,
@@ -306,10 +304,17 @@ class _MyState extends State<My> {
         name.clear();
         password.clear();
         Get.to(Dashboard());
+      } else {
+        Get.snackbar(
+          'Login Failed',
+          'Please check your username and password',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+        );
       }
     } else {
       print(response.body);
     }
-
   }
 }
