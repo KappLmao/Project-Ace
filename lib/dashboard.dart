@@ -1,9 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter110/MasterFile.dart';
 import 'package:flutter110/widget_creator.dart';
-import 'package:flutter110/Profile.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -119,101 +117,344 @@ class _DashboardState extends State<Dashboard> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Welcome back, admin',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 150,
-                        ),
-                        Container(
-                          width: 200,
-                          child: SizedBox(
-                            height: 150,
-                            child: Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(35),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment
+                            .start, // Added to align children to the start
+                        children: [
+                          Center(
+                            // Center widget added here
+                            child: Text(
+                              'Welcome back, admin',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 40,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ), // Added space between the containers
+                          Column(
+                            children: [
+                              Text(
+                                "Courses", // Additional text
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 200,
+                                height: 150, // Added height property
+                                child: Card(
+                                  elevation: 4,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(35),
                                   ),
-                                  Text(
-                                    "Add Courses/Major",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Column(
+                                  child: Column(
                                     children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
+                                      SizedBox(
+                                        height: 40,
+                                      ),
+                                      Text(
+                                        "Add Courses/Major",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Column(
                                         children: [
-                                          SizedBox(
-                                            height: 80,
-                                          ),
-                                          ElevatedButton(
-                                            onPressed: () {},
-                                            style: ElevatedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(
-                                                    10), // Adjust the radius as needed
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              SizedBox(
+                                                height: 80,
                                               ),
-                                              primary: Color.fromARGB(255, 113,
-                                                  205, 133), // Button color
-                                            ),
-                                            child: Text(
-                                              "Add",
-                                              style: TextStyle(
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          ElevatedButton(
-                                            onPressed: () {
-                                              Get.dialog(
-                                                AlertDialog(
-                                                  backgroundColor:
-                                                      Colors.yellow,
-                                                  content: SizedBox(
-                                                    height: 500,
-                                                    width: 500,
-                                                    child: courseListWidget(),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
                                                   ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
                                                 ),
-                                              );
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(
-                                                    10), // Adjust the radius as needed
+                                                child: Text(
+                                                  "Add",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
                                               ),
-                                              primary: Color.fromARGB(255, 113,
-                                                  205, 133), // Button color
-                                            ),
-                                            child: Text(
-                                              "View List",
-                                              style: TextStyle(
-                                                  color: Colors.black),
-                                            ),
-                                          )
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
+                                                ),
+                                                child: Text(
+                                                  "View Files",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              )
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 20,
+                          ), // Added space between the containers
+                          Column(
+                            children: [
+                              Text(
+                                "Administrator", // Additional text
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 200,
+                                height: 150, // Added height property
+                                child: Card(
+                                  elevation: 4,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(35),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 40,
+                                      ),
+                                      Text(
+                                        "Add Administrator",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
+                                                ),
+                                                child: Text(
+                                                  "Add",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
+                                                ),
+                                                child: Text(
+                                                  "View Files",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Alumni", // Additional text
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 200,
+                                height: 150, // Added height property
+                                child: Card(
+                                  elevation: 4,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(35),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 40,
+                                      ),
+                                      Text(
+                                        "Add Alumni",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
+                                                ),
+                                                child: Text(
+                                                  "Add",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.dialog(
+                                                    AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.yellow,
+                                                      content: SizedBox(
+                                                        height: 500,
+                                                        width: 500,
+                                                        child:
+                                                            courseListWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  primary: Color.fromARGB(
+                                                      255, 113, 205, 133),
+                                                ),
+                                                child: Text(
+                                                  "View Files",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

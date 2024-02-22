@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter110/widget_creator.dart';
 
 class MasterFile extends StatefulWidget {
-  const MasterFile({ Key? key }) : super(key: key);
+  const MasterFile({Key? key}) : super(key: key);
 
   @override
   _MasterFileState createState() => _MasterFileState();
